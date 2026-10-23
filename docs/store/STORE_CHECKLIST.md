@@ -7,7 +7,7 @@
 - [x] Icône : `assets/icon.png` (1024, sans transparence) ; Play Store 512×512 : `graphics/play-icon-512.png`
 - [x] Bannière Play (1024×500) : `graphics/play-feature-graphic-fr.png` et `-en.png`
 - [x] 5 captures par langue : `screenshots/` (`SCREENSHOT_PLAN.md`)
-- [x] URL de politique de confidentialité publique : https://jocelynei.github.io/tower-ding/privacy-policy.html
+- [x] URL de politique de confidentialité publique : https://jocelynei.github.io/r-acles/tower-ding/privacy-policy.html
 - [x] Adresse e-mail de support : jocelyn.lebon.ae@gmail.com
 
 ## Déclarations

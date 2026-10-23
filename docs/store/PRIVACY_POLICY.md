@@ -2,7 +2,7 @@
 
 *Dernière mise à jour / Last updated : 13 octobre 2026*
 
-> Publiée sur https://jocelynei.github.io/tower-ding/privacy-policy.html (copie : `public/privacy-policy.html`, à garder identique à ce fichier).
+> Publiée sur https://jocelynei.github.io/r-acles/tower-ding/privacy-policy.html (copies : `public/privacy-policy.html` et, sur le site R-Aclés, `tower-ding/privacy-policy.html` du dépôt JocelynEI/r-acles, à garder identiques à ce fichier).
 
 ## Français
 
