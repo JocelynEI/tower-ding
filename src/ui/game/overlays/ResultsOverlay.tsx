@@ -87,7 +87,7 @@ export function ResultsOverlay({ results, bestScore, t, reduceMotion, bottomInse
         </View>
         <View style={styles.reward}>
           <Icon name="coin" size={22} color={colors.combo} />
-          <AppText variant="button" color={colors.combo}>
+          <AppText variant="button" color={colors.comboText}>
             {format(t.results.reward, { coins: results.rewards.coins })}
           </AppText>
         </View>
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontVariant: ['tabular-nums'],
   },
-  scoreRecord: { color: colors.combo },
+  scoreRecord: { color: colors.comboText },
   stats: { flexDirection: 'row', gap: spacing.xs, marginVertical: spacing.xs },
   stat: {
     flex: 1,

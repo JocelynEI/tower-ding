@@ -82,7 +82,7 @@ function SkinCard({ skin }: { skin: ElevatorSkin }) {
         <View style={styles.buy}>
           <View style={styles.price}>
             <Icon name="coin" size={18} color={colors.combo} />
-            <AppText variant="button" color={colors.combo}>
+            <AppText variant="button" color={colors.comboText}>
               {skin.price.toLocaleString()}
             </AppText>
           </View>

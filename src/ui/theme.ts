@@ -1,26 +1,30 @@
 import { Platform, type TextStyle, type ViewStyle } from 'react-native';
 
 export const colors = {
-  background: '#0E1420',
-  backgroundDeep: '#0A0F18',
-  surface: '#171F2E',
-  surfaceRaised: '#202B3D',
-  surfacePressed: '#2A3850',
-  outline: '#2E3B52',
-  textPrimary: '#F7F9FC',
-  textSecondary: '#AAB4C3',
-  textMuted: '#7D889B',
-  accent: '#34D5FF',
-  accentPressed: '#1FB8E0',
-  onAccent: '#06202B',
-  combo: '#FFD45A',
-  onCombo: '#2B2105',
-  danger: '#FF5E68',
-  success: '#58D68D',
-  warning: '#FFA24C',
-  shaft: '#0B111B',
-  floorLine: '#243048',
-  scrim: 'rgba(6, 10, 18, 0.78)',
+  background: '#FFF1E3',
+  backgroundDeep: '#FBE6D2',
+  surface: '#FFFFFF',
+  surfaceRaised: '#FFFAF4',
+  surfacePressed: '#F6E6D6',
+  outline: '#EED7C3',
+  /** Soft "toy" drop shadow under raised pastel blocks. */
+  ledge: '#F2D9C4',
+  textPrimary: '#3B2F56',
+  textSecondary: '#685A86',
+  textMuted: '#76688F',
+  accent: '#6E52D6',
+  accentPressed: '#5A40BE',
+  onAccent: '#FFFFFF',
+  combo: '#FFC93C',
+  onCombo: '#3B2F56',
+  /** Gold readable as text on light backgrounds (coins, record). */
+  comboText: '#A35F00',
+  danger: '#C8323F',
+  success: '#2B7D4C',
+  warning: '#E2702A',
+  shaft: '#FFFFFF',
+  floorLine: '#F3DDCB',
+  scrim: 'rgba(59, 47, 86, 0.55)',
 } as const;
 
 /** 4 px base grid. */
@@ -43,11 +47,11 @@ export const radius = {
 } as const;
 
 export const fonts = {
-  medium: 'Inter_500Medium',
-  semibold: 'Inter_600SemiBold',
-  bold: 'Inter_700Bold',
-  extraBold: 'Inter_800ExtraBold',
-  black: 'Inter_900Black',
+  medium: 'Nunito_600SemiBold',
+  semibold: 'Nunito_700Bold',
+  bold: 'Nunito_800ExtraBold',
+  extraBold: 'Nunito_800ExtraBold',
+  black: 'Nunito_900Black',
 } as const;
 
 export const type = {
@@ -75,30 +79,44 @@ export const maxContentWidth = 520;
 
 export function shadow(elevation: 'low' | 'high'): ViewStyle {
   return {
-    boxShadow: elevation === 'high' ? '0px 16px 40px rgba(0, 0, 0, 0.45)' : '0px 6px 16px rgba(0, 0, 0, 0.35)',
+    boxShadow: elevation === 'high' ? '0px 14px 32px rgba(59, 47, 86, 0.22)' : '0px 5px 0px rgba(59, 47, 86, 0.16)',
   };
 }
 
-/** Destination badge colours, always paired with a number and an arrow, never alone. */
+/** Destination badge colours, always paired with a number and an arrow, never alone. Dark text reads on all of them. */
 export const floorPalette = [
-  '#34D5FF',
-  '#58D68D',
-  '#FFD45A',
-  '#FF8A5B',
-  '#C58CFF',
-  '#5B9BFF',
-  '#FF6FA8',
-  '#7FE3C4',
-  '#F2C14E',
-  '#9FB4FF',
+  '#8FD3F4',
+  '#9BE3B4',
+  '#FFE08A',
+  '#FFC09A',
+  '#CDB8F6',
+  '#A9BEFF',
+  '#FFB3C9',
+  '#92E3DA',
+  '#F5B0E6',
+  '#D4EC8F',
+] as const;
+
+/** Light wash of each floor colour, used for the floor's "shelf" behind its queue. */
+export const floorTints = [
+  '#E3F4FC',
+  '#E5F8EC',
+  '#FFF6DA',
+  '#FFEDE2',
+  '#F1EBFD',
+  '#EBF0FF',
+  '#FFE9EF',
+  '#E2F8F5',
+  '#FDEAF8',
+  '#F3FAE0',
 ] as const;
 
 /** The native animation driver does not exist on web; there animations run in JS. */
 export const nativeDriver = Platform.OS !== 'web';
 
-/** Dark halo that keeps floating text readable over any background. */
+/** Light halo that keeps floating text readable over the pastel tower. */
 export function textShadow(blur: number, opacity: number): TextStyle {
-  const color = `rgba(0, 0, 0, ${opacity})`;
+  const color = `rgba(255, 255, 255, ${opacity})`;
   return Platform.OS === 'web'
     ? ({ textShadow: `0px 1px ${blur}px ${color}` } as TextStyle)
     : { textShadowColor: color, textShadowRadius: blur, textShadowOffset: { width: 0, height: 1 } };

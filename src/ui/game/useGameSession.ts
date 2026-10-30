@@ -88,7 +88,7 @@ export function useGameSession() {
         soundBoard.play('callout');
         haptic('combo');
         const bonus = signal.bonus > 0 ? `  +${signal.bonus}` : '';
-        const color = signal.kind === 'rushCombo' ? colors.combo : colors.accent;
+        const color = signal.kind === 'rushCombo' ? colors.comboText : colors.accent;
         if (layout) fx.onCallout(layout, `${t.callouts[signal.kind]}${bonus}`, color);
         return;
       }

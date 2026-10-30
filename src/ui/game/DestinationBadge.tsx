@@ -42,7 +42,7 @@ export const DestinationBadge = memo(function DestinationBadge({
     <View style={{ width: ring, height: ring }}>
       {patienceStep !== null ? (
         <Svg width={ring} height={ring} style={StyleSheet.absoluteFill}>
-          <Circle cx={ring / 2} cy={ring / 2} r={radius} stroke="rgba(0,0,0,0.45)" strokeWidth={3} fill="none" />
+          <Circle cx={ring / 2} cy={ring / 2} r={radius} stroke="rgba(59,47,86,0.16)" strokeWidth={3} fill={colors.surface} />
           <Circle
             cx={ring / 2}
             cy={ring / 2}
@@ -83,10 +83,10 @@ export const DestinationBadge = memo(function DestinationBadge({
 
 const styles = StyleSheet.create({
   badge: { position: 'absolute', alignItems: 'center', justifyContent: 'center' },
-  number: { fontFamily: fonts.black, color: '#0B111B', fontVariant: ['tabular-nums'] },
+  number: { fontFamily: fonts.black, color: colors.textPrimary, fontVariant: ['tabular-nums'] },
   arrow: {
     position: 'absolute',
-    backgroundColor: colors.backgroundDeep,
+    backgroundColor: colors.surface,
     borderRadius: 999,
     padding: 1,
   },

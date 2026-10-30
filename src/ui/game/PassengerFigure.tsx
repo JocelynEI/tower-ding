@@ -5,9 +5,9 @@ import type { PassengerType } from '../../game/types';
 export type Mood = 'happy' | 'calm' | 'worried' | 'angry';
 
 const SKIN = ['#F3D5B5', '#E3B48C', '#C98F63', '#94603F', '#5E3B25'];
-const SHIRTS = ['#6C7A96', '#8E6CC0', '#4F9D8C', '#C0746C', '#5A87C8', '#B0925A', '#7F8C5A'];
+const SHIRTS = ['#7B8FE8', '#9E7BDB', '#4FB39A', '#E88A9A', '#5AA9E0', '#E0A04F', '#8DBF5A'];
 const HAIR = ['#2B2118', '#5A3A22', '#C9A06A', '#1E1E24', '#7A4A2A'];
-const PANTS = '#2A3244';
+const PANTS = '#5B4B7A';
 
 export function moodFor(patienceRatio: number): Mood {
   if (patienceRatio > 0.7) return 'happy';
@@ -65,20 +65,23 @@ interface PersonProps {
 function Person({ look, mood, variant }: PersonProps) {
   const skin = SKIN[look % SKIN.length];
   const hair = variant === 'senior' ? '#D9DDE3' : HAIR[(look >> 3) % HAIR.length];
-  const shirt = variant === 'vip' ? '#1E2433' : variant === 'tourist' ? '#FF9F5A' : SHIRTS[(look >> 5) % SHIRTS.length];
+  const shirt = variant === 'vip' ? '#3B2F56' : variant === 'tourist' ? '#FF9F5A' : SHIRTS[(look >> 5) % SHIRTS.length];
   const hairStyle = (look >> 7) % 3;
   const lean = variant === 'senior' ? 'rotate(4 14 30)' : undefined;
   return (
     <G transform={lean}>
       <Rect x="9" y="29" width="4.2" height="10" rx="2" fill={PANTS} />
       <Rect x="14.8" y="29" width="4.2" height="10" rx="2" fill={PANTS} />
-      <Rect x="7" y="16" width="14" height="15" rx="5" fill={shirt} />
-      {variant === 'vip' ? <Path d="M14 17l-1.4 2.4L14 27l1.4-7.6z" fill="#FFD45A" /> : null}
+      <Rect x="6.5" y="17" width="15" height="14" rx="7" fill={shirt} />
+      {variant === 'vip' ? <Path d="M14 18l-1.4 2.4L14 28l1.4-7.6z" fill="#FFC93C" /> : null}
       {variant === 'tourist' ? <Camera /> : null}
-      <Circle cx="14" cy="10" r="6.2" fill={skin} />
-      <Hair style={hairStyle} color={hair} variant={variant} />
-      <Face mood={mood} />
-      {variant === 'vip' ? <Path d="M8.5 3.8l1.6 2.4L14 3l3.9 3.2 1.6-2.4-.6 4H9.1z" fill="#FFD45A" /> : null}
+      {/* Big round head: the toy look of the pastel theme. */}
+      <G transform="translate(14 10.5) scale(1.22) translate(-14 -10)">
+        <Circle cx="14" cy="10" r="6.2" fill={skin} />
+        <Hair style={hairStyle} color={hair} variant={variant} />
+        <Face mood={mood} />
+        {variant === 'vip' ? <Path d="M8.5 3.8l1.6 2.4L14 3l3.9 3.2 1.6-2.4-.6 4H9.1z" fill="#FFC93C" /> : null}
+      </G>
       {variant === 'delivery' ? <Parcel /> : null}
       {variant === 'senior' ? <Path d="M23.5 39V23.5a2.5 2.5 0 0 0-5 0" stroke="#C9A36A" strokeWidth={1.8} fill="none" strokeLinecap="round" /> : null}
     </G>
@@ -106,10 +109,12 @@ function Face({ mood }: { mood: Mood }) {
   const eyeY = mood === 'angry' ? 10.4 : 10;
   return (
     <>
-      <Circle cx="11.6" cy={eyeY} r="0.95" fill="#1B1F2A" />
-      <Circle cx="16.4" cy={eyeY} r="0.95" fill="#1B1F2A" />
-      {mood === 'angry' ? <Path d="M10.2 8.2l2.6 1M17.8 8.2l-2.6 1" stroke="#1B1F2A" strokeWidth={1} strokeLinecap="round" /> : null}
-      <Path d={MOUTHS[mood]} stroke="#1B1F2A" strokeWidth={1} strokeLinecap="round" fill="none" />
+      <Circle cx="11.6" cy={eyeY} r="0.95" fill="#3B2F56" />
+      <Circle cx="16.4" cy={eyeY} r="0.95" fill="#3B2F56" />
+      <Circle cx="10.1" cy="12.4" r="1.2" fill="#FF8FA8" opacity={0.55} />
+      <Circle cx="17.9" cy="12.4" r="1.2" fill="#FF8FA8" opacity={0.55} />
+      {mood === 'angry' ? <Path d="M10.2 8.2l2.6 1M17.8 8.2l-2.6 1" stroke="#3B2F56" strokeWidth={1} strokeLinecap="round" /> : null}
+      <Path d={MOUTHS[mood]} stroke="#3B2F56" strokeWidth={1} strokeLinecap="round" fill="none" />
     </>
   );
 }

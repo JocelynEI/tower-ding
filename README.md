@@ -6,7 +6,7 @@ Jeu mobile d'arcade stratégique en portrait : on pilote l'ascenseur d'une tour,
 - **Stack** : Expo SDK 57 · React Native 0.86 · React 19.2 · TypeScript · Expo Router
 - **Données** : 100 % locales, hors ligne, aucun compte, aucun tracking
 - **Langues** : français, anglais (détection automatique, choix manuel dans Réglages)
-- **Version** : 1.0.0 (build 1)
+- **Version** : 1.1.0 (build 1)
 
 > Le prompt d'origine prévoyait Godot. Le projet a été réalisé avec Expo / React Native à la demande du propriétaire, pour pouvoir le tester dans **Expo Go** et le publier sur **GitHub Pages**.
 
@@ -67,7 +67,7 @@ Les textes sont dans `src/i18n/en.ts` (référence) et `src/i18n/fr.ts`. TypeScr
 - **Sons et musique** : synthétisés par `scripts/generate_audio.py` (Python 3, sans dépendance). Relancer : `python3 scripts/generate_audio.py`.
 - **Icônes et image de lancement** : générées depuis `assets/brand/lift-mark.svg` par `scripts/render-icons.mjs` (`npm install --no-save sharp && node scripts/render-icons.mjs`).
 - **Personnages, cabine, interface** : dessinés en SVG et en composants dans le code.
-- **Police** : Inter (SIL Open Font License 1.1), voir [docs/THIRD_PARTY_NOTICES.md](docs/THIRD_PARTY_NOTICES.md).
+- **Police** : Nunito (SIL Open Font License 1.1), voir [docs/THIRD_PARTY_NOTICES.md](docs/THIRD_PARTY_NOTICES.md).
 
 Tout est original ou sous licence libre compatible.
 

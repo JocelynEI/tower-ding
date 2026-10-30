@@ -108,7 +108,7 @@ export class SceneFx {
   onDelivered(layout: TowerLayout, floor: number, points: number, type: PassengerType, look: number): void {
     const x = layout.shaftX + layout.shaftWidth - 4;
     const y = floorTop(layout, floor) + layout.rowHeight * 0.5;
-    this.addText(`+${points}`, x + 18, y - layout.rowHeight * 0.2, colors.combo, 18, 'points');
+    this.addText(`+${points}`, x + 18, y - layout.rowHeight * 0.2, colors.comboText, 18, 'points');
     this.burst(x, y, floorPalette[floor % floorPalette.length], this.reduceMotion ? 4 : 10);
     this.walkers.push({ id: this.nextId++, type, look, mood: 'happy', floor, x, speed: WALK_SPEED, age: 0, life: 1.6 });
   }

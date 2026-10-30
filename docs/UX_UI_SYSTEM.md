@@ -2,33 +2,35 @@
 
 Toutes les valeurs sont dans `src/ui/theme.ts`.
 
-## Couleurs
+## Couleurs : « jouet pastel » (depuis 1.1.0)
 
 | Rôle | Valeur | Usage |
 |---|---|---|
-| Fond | `#0E1420` | écrans |
-| Surface | `#171F2E` | cartes |
-| Surface élevée | `#202B3D` | panneaux, fenêtres |
-| Texte principal | `#F7F9FC` | contraste d'environ 17:1 sur le fond |
-| Texte secondaire | `#AAB4C3` | contraste d'environ 9:1 |
-| Accent | `#34D5FF` | action principale, sélection |
-| Combo / or | `#FFD45A` | combo, pièces, record |
-| Danger | `#FF5E68` | stress élevé, suppression |
-| Succès | `#58D68D` | stress bas, validations |
-| Attention | `#FFA24C` | stress moyen, maintenance |
+| Fond | `#FFF1E3` | écrans (crème) |
+| Surface | `#FFFFFF` | cartes, pastilles du HUD |
+| Ombre « jouet » | `#F2D9C4` | ombre pleine sous les blocs (`ledge`) |
+| Texte principal | `#3B2F56` | prune foncé, contraste 11:1 sur le fond |
+| Texte secondaire | `#685A86` | contraste 5,6:1 |
+| Accent | `#6E52D6` | action principale (texte blanc, 5,5:1) |
+| Combo / or | `#FFC93C` | remplissages ; en texte : `comboText` `#A35F00` |
+| Danger | `#C8323F` | stress élevé, suppression |
+| Succès | `#2B7D4C` | stress bas, validations |
+| Attention | `#E2702A` | stress moyen, maintenance (icônes, jamais en texte) |
 
-Les 10 couleurs d'étage (`floorPalette`) accompagnent **toujours** un numéro et une flèche.
+Les 10 couleurs d'étage (`floorPalette`) sont pastel, avec un texte prune lisible sur toutes (6,6:1 au minimum). Chaque étage a aussi une teinte très claire (`floorTints`) pour son « étagère ». La couleur accompagne **toujours** un numéro et une flèche.
 
-## Typographie : Inter
+## Typographie : Nunito
+
+Police arrondie, cohérente avec le style jouet. Graisses chargées : 600, 700, 800, 900.
 
 | Style | Taille / interligne | Graisse |
 |---|---|---|
 | display | 40 / 42 | Black |
 | h1 | 28 / 34 | ExtraBold |
-| h2 | 20 / 26 | Bold |
-| body | 16 / 22 | Medium |
-| caption | 13 / 18 | SemiBold |
-| overline | 12 / 16, majuscules, espacé | Bold |
+| h2 | 20 / 26 | ExtraBold |
+| body | 16 / 22 | SemiBold |
+| caption | 13 / 18 | Bold |
+| overline | 12 / 16, majuscules, espacé | ExtraBold |
 | button | 17 / 22 | ExtraBold |
 
 Les chiffres utilisent des largeurs fixes (`tabular-nums`), pour que les scores ne « sautent » pas. La taille du texte suit le réglage d'accessibilité du téléphone, jusqu'à ×1,4.

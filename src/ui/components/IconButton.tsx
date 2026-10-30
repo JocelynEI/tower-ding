@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  surface: { backgroundColor: colors.surfaceRaised },
+  surface: { backgroundColor: colors.surface, boxShadow: `0px 4px 0px ${colors.ledge}` },
   pressed: { backgroundColor: colors.surfacePressed },
 });

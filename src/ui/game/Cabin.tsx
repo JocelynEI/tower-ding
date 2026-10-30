@@ -115,13 +115,13 @@ function seatLayout(riders: CabinRider[], capacity: number): Seat[] {
 
 const styles = StyleSheet.create({
   frame: {
-    borderWidth: 2,
-    borderRadius: 7,
+    borderWidth: 2.5,
+    borderRadius: 14,
     alignItems: 'center',
   },
   display: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 1 },
   displayText: { fontFamily: fonts.black, fontVariant: ['tabular-nums'] },
-  interior: { borderRadius: 4, overflow: 'hidden', alignItems: 'center', justifyContent: 'center' },
+  interior: { borderRadius: 9, overflow: 'hidden', alignItems: 'center', justifyContent: 'center' },
   light: { position: 'absolute', top: 0, left: 0, right: 0, height: 3, opacity: 0.9 },
   seats: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' },
   slot: { alignItems: 'center', justifyContent: 'center' },

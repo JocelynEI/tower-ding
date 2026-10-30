@@ -6,7 +6,7 @@ import type { Passenger } from '../../game/types';
 import { floorLabel, format, type Translations } from '../../i18n';
 import type { ElevatorSkin } from '../../meta/cosmetics';
 import { Icon } from '../components/Icon';
-import { colors, floorPalette, fonts, textShadow } from '../theme';
+import { colors, floorPalette, floorTints, fonts, textShadow } from '../theme';
 import { Cabin, type CabinRider } from './Cabin';
 import { DestinationBadge, PATIENCE_STEPS } from './DestinationBadge';
 import { computeTowerLayout, figureWidth, floorTop, type TowerLayout } from './layout';
@@ -114,26 +114,27 @@ const FloorRow = memo(function FloorRow({
       onPressIn={() => onPress(floor)}
       accessibilityRole="button"
       accessibilityLabel={format(t.a11y.floorButton, { floor: floorLabel(floor), waiting })}
-      style={[
-        styles.floor,
-        { top: floorTop(layout, floor), height: layout.rowHeight, width: layout.width },
-        floor % 2 === 0 && styles.floorAlt,
-      ]}
+      style={[styles.floor, { top: floorTop(layout, floor), height: layout.rowHeight, width: layout.width }]}
     >
+      <View
+        style={[
+          styles.shelf,
+          { left: layout.lobbyX - 6, backgroundColor: floorTints[floor % floorTints.length], opacity: active ? 1 : 0.45 },
+        ]}
+      />
       {flash > 0 ? <View style={[StyleSheet.absoluteFill, styles.flash, { opacity: flash * 0.18 }]} /> : null}
       {hot ? <View style={[StyleSheet.absoluteFill, styles.hot]} /> : null}
       {maintenance ? <View style={[StyleSheet.absoluteFill, styles.maintenance]} /> : null}
       <View style={[styles.label, { width: layout.labelWidth, opacity: active || isDrop || focused ? 1 : 0.35 }]}>
         <View
           style={[
-            styles.labelDisc,
-            { width: labelSize, height: labelSize, borderColor: color },
-            isDrop && { backgroundColor: color },
+            styles.labelTile,
+            { width: labelSize, height: labelSize, borderRadius: labelSize * 0.36, backgroundColor: isDrop ? colors.textPrimary : color },
           ]}
         >
           <Text
             allowFontScaling={false}
-            style={[styles.labelText, { fontSize: labelSize * 0.5, color: isDrop ? '#0B111B' : colors.textPrimary }]}
+            style={[styles.labelText, { fontSize: labelSize * 0.52, color: isDrop ? colors.surface : colors.textPrimary }]}
           >
             {floorLabel(floor)}
           </Text>
@@ -152,7 +153,6 @@ const FloorRow = memo(function FloorRow({
         </View>
       ) : null}
       {focused ? <View style={[StyleSheet.absoluteFill, styles.focus]} /> : null}
-      <View style={styles.floorLine} />
     </Pressable>
   );
 });
@@ -162,8 +162,8 @@ const Shaft = memo(function Shaft({ layout }: { layout: TowerLayout }) {
     <View
       style={[styles.shaft, { left: layout.shaftX, width: layout.shaftWidth, height: layout.height }]}
     >
-      <View style={[styles.rail, { left: 3 }]} />
-      <View style={[styles.rail, { right: 3 }]} />
+      <View style={[styles.rail, { left: 8 }]} />
+      <View style={[styles.rail, { right: 8 }]} />
     </View>
   );
 });
@@ -333,14 +333,13 @@ const styles = StyleSheet.create({
   tower: { overflow: 'hidden' },
   passThrough: { pointerEvents: 'none' },
   floor: { position: 'absolute', left: 0, flexDirection: 'row', alignItems: 'center' },
-  floorAlt: { backgroundColor: 'rgba(255,255,255,0.018)' },
-  floorLine: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 1, backgroundColor: colors.floorLine },
+  shelf: { position: 'absolute', right: 4, top: 3, bottom: 3, borderRadius: 16 },
   flash: { backgroundColor: colors.accent },
-  hot: { backgroundColor: 'rgba(255, 212, 90, 0.08)', borderTopWidth: 1, borderBottomWidth: 1, borderColor: 'rgba(255, 212, 90, 0.45)' },
-  maintenance: { backgroundColor: 'rgba(255, 162, 76, 0.07)' },
-  focus: { pointerEvents: 'none', borderWidth: 2, borderColor: colors.accent, borderRadius: 10 },
+  hot: { backgroundColor: 'rgba(255, 201, 60, 0.16)', borderRadius: 16, borderWidth: 2, borderColor: colors.combo },
+  maintenance: { backgroundColor: 'rgba(226, 112, 42, 0.10)', borderRadius: 16 },
+  focus: { pointerEvents: 'none', borderWidth: 3, borderColor: colors.accent, borderRadius: 16 },
   label: { height: '100%', alignItems: 'center', justifyContent: 'center' },
-  labelDisc: { borderRadius: 999, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
+  labelTile: { alignItems: 'center', justifyContent: 'center' },
   labelText: { fontFamily: fonts.black, fontVariant: ['tabular-nums'] },
   floorTag: { position: 'absolute', top: 4 },
   hotTag: { backgroundColor: colors.combo, borderRadius: 8, paddingHorizontal: 6, paddingVertical: 1 },
@@ -350,12 +349,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     backgroundColor: colors.shaft,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderColor: '#1C2638',
+    borderWidth: 3,
+    borderColor: colors.ledge,
+    borderRadius: 24,
   },
-  rail: { position: 'absolute', top: 0, bottom: 0, width: 2, backgroundColor: '#1F2A3E' },
-  cable: { pointerEvents: 'none', position: 'absolute', top: 0, width: 2, backgroundColor: '#2C3950' },
+  rail: { position: 'absolute', top: 14, bottom: 14, width: 2, borderRadius: 1, backgroundColor: colors.backgroundDeep },
+  cable: { pointerEvents: 'none', position: 'absolute', top: 0, width: 2, backgroundColor: colors.outline },
   trail: { pointerEvents: 'none', position: 'absolute', opacity: 0.12, borderRadius: 6 },
   passenger: { pointerEvents: 'none', position: 'absolute', alignItems: 'center', justifyContent: 'space-between' },
   passengerBadge: { zIndex: 1 },

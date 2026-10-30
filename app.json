@@ -2,11 +2,11 @@
   "expo": {
     "name": "Tower Ding",
     "slug": "tower-ding",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "towerding",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "light",
     "backgroundColor": "#0E1420",
     "primaryColor": "#34D5FF",
     "ios": {

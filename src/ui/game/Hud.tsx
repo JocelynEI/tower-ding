@@ -104,12 +104,12 @@ function EventBanner({ event, t }: { event: ActiveGameEvent | null; t: Translati
   return (
     <View style={[styles.banner, { borderColor: visual.color }]} accessibilityLiveRegion="polite" accessible>
       <View style={[styles.bannerIcon, { backgroundColor: visual.color }]}>
-        <Icon name={visual.icon} size={16} color={colors.backgroundDeep} />
+        <Icon name={visual.icon} size={16} color={colors.textPrimary} />
       </View>
       <View style={styles.bannerText}>
         <AppText variant="caption" numberOfLines={1}>
           {announcing ? `${t.events.incoming} · ` : ''}
-          <AppText variant="caption" color={visual.color}>
+          <AppText variant="caption" color={colors.textPrimary} style={styles.bannerName}>
             {copy.name}
           </AppText>
         </AppText>
@@ -125,30 +125,40 @@ function EventBanner({ event, t }: { event: ActiveGameEvent | null; t: Translati
 }
 
 const styles = StyleSheet.create({
-  root: { paddingHorizontal: spacing.md, gap: spacing.xs, paddingBottom: spacing.xs },
+  root: { paddingHorizontal: spacing.md, gap: spacing.xs, paddingTop: spacing.xs, paddingBottom: spacing.xs },
   topRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', minHeight: 52 },
-  score: { minWidth: 110 },
+  score: {
+    minWidth: 118,
+    backgroundColor: colors.surface,
+    borderRadius: radius.lg,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xxs,
+    boxShadow: `0px 4px 0px ${colors.ledge}`,
+  },
   scoreValue: { fontFamily: fonts.black, fontSize: 28, lineHeight: 32, color: colors.textPrimary, fontVariant: ['tabular-nums'] },
   combo: {
     minWidth: 76,
     alignItems: 'center',
-    borderRadius: radius.md,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xxs,
     backgroundColor: colors.surface,
+    borderRadius: radius.lg,
+    boxShadow: `0px 4px 0px ${colors.ledge}`,
   },
-  comboActive: { backgroundColor: colors.combo },
-  comboText: { fontFamily: fonts.black, fontSize: 22, lineHeight: 26, color: colors.textMuted },
+  comboActive: { backgroundColor: colors.combo, boxShadow: '0px 4px 0px #E0A82A' },
+  comboText: { fontFamily: fonts.black, fontSize: 24, lineHeight: 28, color: colors.textMuted },
   comboTextActive: { color: colors.onCombo },
-  comboTrack: { width: 48, height: 3, borderRadius: 2, backgroundColor: 'rgba(0,0,0,0.25)', overflow: 'hidden', marginTop: 2 },
+  comboTrack: { width: 48, height: 4, borderRadius: 2, backgroundColor: 'rgba(59,47,86,0.15)', overflow: 'hidden', marginTop: 2 },
   comboFill: { height: '100%' },
   stress: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
   stressLabel: { flexDirection: 'row', alignItems: 'center', gap: 4, width: 76 },
   stressTrack: {
     flex: 1,
-    height: 12,
+    height: 14,
     borderRadius: radius.pill,
     backgroundColor: colors.surface,
+    borderWidth: 3,
+    borderColor: colors.surface,
     overflow: 'hidden',
   },
   stressFill: { height: '100%', borderRadius: radius.pill },
@@ -161,13 +171,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.xs,
-    borderRadius: radius.md,
-    borderWidth: 1.5,
+    borderRadius: radius.lg,
+    borderWidth: 2,
     backgroundColor: colors.surface,
     paddingHorizontal: spacing.xs,
   },
+  bannerName: { fontFamily: fonts.black },
   bannerIcon: { width: 26, height: 26, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
   bannerText: { flex: 1 },
-  bannerTimer: { width: 4, height: 28, borderRadius: 2, backgroundColor: colors.surfaceRaised, justifyContent: 'flex-end', overflow: 'hidden' },
+  bannerTimer: { width: 5, height: 28, borderRadius: 3, backgroundColor: colors.backgroundDeep, justifyContent: 'flex-end', overflow: 'hidden' },
   bannerTimerFill: { width: '100%' },
 });

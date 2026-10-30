@@ -20,9 +20,9 @@ interface ButtonProps {
 
 const VARIANTS: Record<Variant, { background: string; pressed: string; text: string; border?: string }> = {
   primary: { background: colors.accent, pressed: colors.accentPressed, text: colors.onAccent },
-  secondary: { background: colors.surfacePressed, pressed: '#34445F', text: colors.textPrimary },
+  secondary: { background: colors.surfacePressed, pressed: colors.outline, text: colors.textPrimary },
   ghost: { background: 'transparent', pressed: colors.surface, text: colors.textPrimary, border: colors.outline },
-  danger: { background: colors.danger, pressed: '#E54852', text: '#2B0508' },
+  danger: { background: colors.danger, pressed: '#B02A36', text: '#FFFFFF' },
 };
 
 export function Button({

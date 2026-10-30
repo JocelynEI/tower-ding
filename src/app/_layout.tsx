@@ -1,11 +1,10 @@
 import {
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  Inter_800ExtraBold,
-  Inter_900Black,
+  Nunito_600SemiBold,
+  Nunito_700Bold,
+  Nunito_800ExtraBold,
+  Nunito_900Black,
   useFonts,
-} from '@expo-google-fonts/inter';
+} from '@expo-google-fonts/nunito';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -23,7 +22,7 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider style={styles.root}>
       <AppStateProvider>
-        <StatusBar style="light" />
+        <StatusBar style="dark" />
         <Navigator />
       </AppStateProvider>
     </SafeAreaProvider>
@@ -33,11 +32,10 @@ export default function RootLayout() {
 function Navigator() {
   const { ready, save } = useAppState();
   const [fontsLoaded, fontError] = useFonts({
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    Inter_800ExtraBold,
-    Inter_900Black,
+    Nunito_600SemiBold,
+    Nunito_700Bold,
+    Nunito_800ExtraBold,
+    Nunito_900Black,
   });
   const fontsSettled = fontsLoaded || fontError !== null;
 

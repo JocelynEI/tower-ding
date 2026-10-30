@@ -16,7 +16,7 @@ TOWER DING n'intègre **aucun SDK publicitaire, analytique, de crash reporting n
 | expo-audio | 57.0.5 | MIT | Musique et effets |
 | expo-haptics | 57.0.3 | MIT | Vibrations |
 | expo-localization | 57.0.2 | MIT | Langue du téléphone (lecture locale uniquement) |
-| expo-font / @expo-google-fonts/inter | 57.0.4 / 0.4.2 | MIT (code), OFL-1.1 (police) | Police Inter embarquée dans l'appli, sans téléchargement |
+| expo-font / @expo-google-fonts/nunito | 57.0.4 / 0.4.2 | MIT (code), OFL-1.1 (police) | Police Nunito embarquée dans l'appli, sans téléchargement |
 | expo-splash-screen | 57.0.9 | MIT | Écran de lancement |
 | expo-status-bar / expo-system-ui | 57.x | MIT | Barre d'état, couleur de fond native |
 | expo-constants / expo-linking | 57.x | MIT | Numéro de version, liens (requis par la navigation) |
@@ -24,10 +24,10 @@ TOWER DING n'intègre **aucun SDK publicitaire, analytique, de crash reporting n
 
 Outils de développement (non livrés dans l'appli) : TypeScript, Jest, jest-expo, ESLint (config Expo). Tous sous licence MIT ou Apache-2.0.
 
-## Police Inter
+## Police Nunito
 
-Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter).
-Distribuée sous **SIL Open Font License 1.1** : texte complet dans [licenses/Inter-OFL-1.1.txt](licenses/Inter-OFL-1.1.txt).
+Copyright 2014 The Nunito Project Authors (https://github.com/googlefonts/nunito).
+Distribuée sous **SIL Open Font License 1.1** : texte complet dans [licenses/Nunito-OFL-1.1.txt](licenses/Nunito-OFL-1.1.txt).
 
 ## Assets originaux
 
