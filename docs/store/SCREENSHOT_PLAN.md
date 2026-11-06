@@ -2,7 +2,7 @@
 
 Format : portrait. Tailles exigées au moment de la soumission, à vérifier : iPhone 6,9" et 6,5" ; Android téléphone 9:16 ou 9:20.
 
-Composition commune : fond `#0E1420`, capture du jeu dans un cadre de téléphone occupant ~78 % de la hauteur, titre en Inter Black en haut (2 lignes max.), accent cyan ou or sur un mot.
+Composition commune (habillage « jouet pastel », 1.1.0) : fond crème `#FFF1E3` → `#FBE6D2`, capture du jeu dans un cadre blanc arrondi occupant ~78 % de la hauteur, titre en Nunito en haut (2 lignes max.), premier membre en Nunito Black violet `#6E52D6`, suite en Nunito Bold `#685A86`.
 
 | # | Scène à capturer | Texte FR | Texte EN | Disposition |
 |---|---|---|---|---|
@@ -14,9 +14,9 @@ Composition commune : fond `#0E1420`, capture du jeu dans un cadre de téléphon
 
 Méthode : jouer sur un simulateur ou un téléphone en anglais puis en français (Réglages → Langue), faire une capture système, puis composer les visuels.
 
-## Captures réalisées (13 octobre 2026)
+## Captures réalisées (6 novembre 2026, version 1.1.0 pastel)
 
-Faites depuis la version web du jeu (même code que l'appli), pendant une vraie partie jouée par un robot. Seuls le stress à 60 % et le déclenchement de l'heure de pointe (scène 2) ont été mis en scène.
+Faites depuis la version web du jeu (même code que l'appli), pendant de vraies parties jouées par un robot, sans mise en scène. Le stress reste à 0 % sur les captures. Pour la scène 5, la sauvegarde a été préremplie (Néon équipé, Rétro, Or et Spatial débloqués).
 
 - `screenshots/ios-6.9/fr|en/` : 1290 × 2796, iPhone 6,9" (App Store Connect les réduit pour les autres tailles)
 - `screenshots/android/fr|en/` : 1080 × 1920 (9:16), téléphone Google Play
