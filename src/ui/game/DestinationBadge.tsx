@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { floorLabel } from '../../i18n';
-import { colors, floorPalette, fonts } from '../theme';
+import { badgeRim, colors, floorPalette, fonts } from '../theme';
 import { Icon } from '../components/Icon';
 
 /** Patience is quantised so a badge only re-renders a few times per second. */
@@ -35,7 +35,9 @@ export const DestinationBadge = memo(function DestinationBadge({
   highlighted,
 }: DestinationBadgeProps) {
   const ratio = patienceStep === null ? 1 : patienceStep / PATIENCE_STEPS;
-  const ring = size + 6;
+  // Inside the cabin there is no patience ring, so the badge takes the whole slot.
+  const inset = patienceStep === null ? 0 : 3;
+  const ring = size + inset * 2;
   const radius = ring / 2 - 1.8;
   const circumference = 2 * Math.PI * radius;
   return (
@@ -63,8 +65,8 @@ export const DestinationBadge = memo(function DestinationBadge({
             width: size,
             height: size,
             borderRadius: size / 2,
-            top: 3,
-            left: 3,
+            top: inset,
+            left: inset,
             backgroundColor: floorPalette[destination % floorPalette.length],
           },
           highlighted && styles.highlighted,
@@ -82,7 +84,7 @@ export const DestinationBadge = memo(function DestinationBadge({
 });
 
 const styles = StyleSheet.create({
-  badge: { position: 'absolute', alignItems: 'center', justifyContent: 'center' },
+  badge: { position: 'absolute', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: badgeRim },
   number: { fontFamily: fonts.black, color: colors.textPrimary, fontVariant: ['tabular-nums'] },
   arrow: {
     position: 'absolute',

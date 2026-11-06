@@ -46,7 +46,7 @@ export const Cabin = memo(function Cabin({
   const columns = capacity > 4 ? Math.ceil(capacity / 2) : capacity;
   const rows = Math.ceil(capacity / columns);
   const slot = Math.min((interiorWidth - 6) / columns, (interiorHeight - 4) / rows);
-  const badge = Math.max(10, slot - 5);
+  const badge = Math.max(10, slot - 2);
   const seats = seatLayout(riders, capacity);
   const doorWidth = (interiorWidth / 2) * (1 - doorOpen);
 

@@ -22,7 +22,7 @@ export interface TowerLayout {
 export function computeTowerLayout(width: number, height: number, floorCount: number): TowerLayout {
   const rowHeight = height / floorCount;
   const labelWidth = 46;
-  const shaftWidth = Math.round(Math.min(108, Math.max(80, rowHeight * 1.35)));
+  const shaftWidth = Math.round(Math.min(136, Math.max(84, rowHeight * 1.9)));
   const lobbyX = labelWidth + shaftWidth + 10;
   const lobbyWidth = Math.max(0, width - lobbyX - 8);
   const badgeSize = Math.round(Math.min(26, Math.max(15, rowHeight * 0.36)));

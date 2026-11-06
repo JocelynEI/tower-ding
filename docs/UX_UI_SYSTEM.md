@@ -17,7 +17,7 @@ Toutes les valeurs sont dans `src/ui/theme.ts`.
 | Succès | `#2B7D4C` | stress bas, validations |
 | Attention | `#E2702A` | stress moyen, maintenance (icônes, jamais en texte) |
 
-Les 10 couleurs d'étage (`floorPalette`) sont pastel, avec un texte prune lisible sur toutes (6,6:1 au minimum). Chaque étage a aussi une teinte très claire (`floorTints`) pour son « étagère ». La couleur accompagne **toujours** un numéro et une flèche.
+Les 10 couleurs d'étage (`floorPalette`) sont franches pour se distinguer d'un coup d'œil sur les étagères pastel, avec un texte prune lisible sur toutes (4,5:1 au minimum) et un fin contour foncé autour des pastilles. Chaque étage a aussi une teinte très claire (`floorTints`) pour son « étagère ». La couleur accompagne **toujours** un numéro et une flèche.
 
 ## Typographie : Nunito
 

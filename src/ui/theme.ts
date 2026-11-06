@@ -83,19 +83,25 @@ export function shadow(elevation: 'low' | 'high'): ViewStyle {
   };
 }
 
-/** Destination badge colours, always paired with a number and an arrow, never alone. Dark text reads on all of them. */
+/**
+ * Destination badge colours, always paired with a number and an arrow, never alone. Vivid enough to tell
+ * apart at a glance on the pastel shelves; dark text reads on all of them (4.5:1 minimum).
+ */
 export const floorPalette = [
-  '#8FD3F4',
-  '#9BE3B4',
-  '#FFE08A',
-  '#FFC09A',
-  '#CDB8F6',
-  '#A9BEFF',
-  '#FFB3C9',
-  '#92E3DA',
-  '#F5B0E6',
-  '#D4EC8F',
+  '#3CC8F5',
+  '#4FD37F',
+  '#FFD23F',
+  '#FF9150',
+  '#B48CFF',
+  '#6E9BFF',
+  '#FF7AAC',
+  '#2FD6C3',
+  '#E98AE6',
+  '#AEDC3C',
 ] as const;
+
+/** Thin dark rim that detaches a destination badge from the pastel shelf or cabin behind it. */
+export const badgeRim = 'rgba(59, 47, 86, 0.45)';
 
 /** Light wash of each floor colour, used for the floor's "shelf" behind its queue. */
 export const floorTints = [
